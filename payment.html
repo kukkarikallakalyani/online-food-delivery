@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Payment - Food Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="login">
+
+    <h2>💳 Payment</h2>
+
+    <p>Select Payment Method</p>
+
+    <input type="radio" name="payment"> UPI <br><br>
+
+    <input type="radio" name="payment"> Credit / Debit Card <br><br>
+
+    <input type="radio" name="payment"> Cash on Delivery <br><br>
+
+    <button onclick="paymentSuccess()">Pay Now</button>
+
+</section>
+
+
+<script>
+function paymentSuccess(){
+    window.location.href="success.html";
+}
+</script>
+
+</body>
+
+</html>
