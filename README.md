@@ -1,7 +1,7 @@
 # 🍴 Food Express - Online Food Delivery Website
 ## 🚀 Live Demo
 
-[Click Here to View Online Food Delivery Website](https://kalyanikukkarikalla-ux.github.io/online-food-delivery/)]
+[Click Here to View Online Food Delivery Website](https://kalyanikukkarikalla.github.io/online-food-delivery/)]
 
 ## 📌 About The Project
 
