@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - Food Express</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .login-box {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 30px 25px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .login-box h1 {
+            color: #ff5722;
+        }
+
+        .login-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            margin-top: 15px;
+            background: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #e64a19;
+        }
+
+        .login-box a {
+            display: block;
+            margin-top: 20px;
+            color: #ff5722;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🍴 Food Express</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#menu">Menu</a>
+        <a href="tracking.html">Track Order</a>
+    </nav>
+
+</header>
+
+
+<section class="login-box">
+
+    <h1>🔐 Login</h1>
+
+    <p>Welcome back to Food Express!</p>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter your email">
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter your password">
+
+    <button
+        class="login-btn"
+        onclick="login()">
+
+        Login 🚀
+
+    </button>
+
+    <p
+        id="message"
+        class="message">
+    </p>
+
+    <a href="index.html">
+        ← Back to Home
+    </a>
+
+</section>
+
+
+<script>
+
+function login() {
+
+    const email =
+        document.getElementById("email")
+        .value.trim();
+
+    const password =
+        document.getElementById("password")
+        .value.trim();
+
+    const message =
+        document.getElementById("message");
+
+
+    if (email === "" || password === "") {
+
+        message.textContent =
+            "⚠️ Please enter email and password.";
+
+        message.style.color = "red";
+
+        return;
+    }
+
+
+    if (!email.includes("@")) {
+
+        message.textContent =
+            "⚠️ Please enter a valid email.";
+
+        message.style.color = "red";
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+
+    message.textContent =
+        "✅ Login successful!";
+
+    message.style.color = "green";
+
+
+    setTimeout(function() {
+
+        window.location.href =
+            "index.html";
+
+    }, 1000);
+
+}
+
+</script>
+<script>
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+    window.location.href = "index.html";
+}
+</script>
+<script>
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+    window.location.href = "index.html";
+}
+<script>
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+    window.location.href = "index.html";
+}
+
+</script>
+function login()<script>
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+    window.location.href = "index.html";
+}
+<script>
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+    window.location.href = "index.html";
+}
+
+<script>
+
+function login() {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please enter email and password");
+        return;
+    }
+
+    localStorage.setItem(
+        "foodUser",
+        JSON.stringify({
+            email: email,
+            loggedIn: true
+        })
+    );
+
+    window.location.href = "index.html";
+}
+
+</script>
+
+</body>
+</html>
