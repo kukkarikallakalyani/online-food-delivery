@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Express - Payment</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<style>
+.payment-box{
+    max-width:600px;
+    margin:40px auto;
+    padding:25px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+.payment-box h1{
+    text-align:center;
+    color:#ff5722;
+}
+.payment-box input,
+.payment-box textarea{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px;
+    margin:8px 0 15px;
+    border:1px solid #ccc;
+    border-radius:7px;
+}
+.order-item{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+}
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-size:22px;
+    font-weight:bold;
+    color:#ff5722;
+    margin:20px 0;
+}
+.pay-btn{
+    width:100%;
+    padding:15px;
+    background:#ff5722;
+    color:white;
+    border:0;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+.pay-btn:hover{
+    background:#e64a19;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍴 Food Express</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html#menu">Menu</a>
+</nav>
+</header>
+
+<div class="payment-box">
+
+<h1>💳 Checkout</h1>
+
+<h2>🛒 Your Order</h2>
+
+<div id="orderItems"></div>
+
+<div class="total">
+<span>Total</span>
+<span>₹<span id="total">0</span></span>
+</div>
+
+<h2>📍 Delivery Details</h2>
+
+<label>Name</label>
+<input type="text" id="name" placeholder="Enter your name">
+
+<label>Mobile</label>
+<input type="tel" id="phone" maxlength="10" placeholder="10 digit mobile number">
+
+<label>Address</label>
+<textarea id="address" rows="4" placeholder="Enter delivery address"></textarea>
+
+<h2>💰 Payment</h2>
+
+<label>
+<input type="radio" name="payment" value="COD" checked>
+💵 Cash on Delivery
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="payment" value="ONLINE">
+💳 Online Payment
+</label>
+
+<button class="pay-btn" onclick="placeOrder()">
+Pay & Place Order 🚀
+</button>
+
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("foodCart")) || [];
+
+function loadCart(){
+
+let box = document.getElementById("orderItems");
+let total = 0;
+
+box.innerHTML = "";
+
+cart.forEach(function(item){
+
+let price = Number(item.price) || 0;
+let quantity = Number(item.quantity) || 1;
+let amount = price * quantity;
+
+total += amount;
+
+box.innerHTML += `
+<div class="order-item">
+<span>${item.name} × ${quantity}</span>
+<strong>₹${amount}</strong>
+</div>
+`;
+
+});
+
+document.getElementById("total").textContent = total;
+
+}
+
+function placeOrder(){
+
+if(cart.length === 0){
+alert("Your cart is empty!");
+return;
+}
+
+let name = document.getElementById("name").value.trim();
+let phone = document.getElementById("phone").value.trim();
+let address = document.getElementById("address").value.trim();
+
+if(name === "" || phone === "" || address === ""){
+alert("Please fill all details!");
+return;
+}
+
+let method = document.querySelector(
+'input[name="payment"]:checked'
+).value;
+
+let total = 0;
+
+cart.forEach(function(item){
+total += (Number(item.price) || 0) *
+         (Number(item.quantity) || 1);
+});
+
+if(method === "COD"){
+
+let order = {
+orderId:"FE" + Date.now(),
+name:name,
+phone:phone,
+address:address,
+payment:"Cash on Delivery",
+items:cart,
+total:total
+};
+
+localStorage.setItem(
+"foodOrder",
+JSON.stringify(order)
+);
+
+localStorage.removeItem("foodCart");
+
+window.location.href="success.html";
+
+return;
+}
+
+alert("Online payment will be connected after the backend is deployed.");
+
+}
+
+document.addEventListener(
+"DOMContentLoaded",
+loadCart
+);
+
+</script>
+
+</body>
+</html>
